@@ -1,0 +1,51 @@
+show databases;
+
+create database VITCampuses;
+
+use VITCampuses;
+
+create table CSE(
+  student_id INT,
+  student_name VARCHAR(50),
+  student_marks INT
+);
+
+create table ECE(
+  student_id INT,
+  student_name VARCHAR(50),
+  student_marks INT
+);
+
+create table MEC(
+  student_id INT,
+  student_name VARCHAR(50),
+  student_marks INT
+);
+
+SHOW tables;
+
+INSERT INTO CSE VALUES(101,'Sashank',95);
+INSERT INTO CSE VALUES(102,'Durgesh',89);
+INSERT INTO CSE VALUES(103,'Ramu',84);
+INSERT INTO CSE VALUES(104,'Rohit',100);
+INSERT INTO CSE VALUES(105,'Kishore',99);
+
+INSERT INTO ECE VALUES(201,'Raju',99);
+INSERT INTO ECE VALUES(202,'Rakesh',95);
+INSERT INTO ECE VALUES(203,'Sony',85);
+INSERT INTO ECE VALUES(204,'Amulya',80);
+INSERT INTO ECE VALUES(205,'Shekhar',100);
+
+INSERT INTO MEC VALUES(301,'Prabhas',100);
+INSERT INTO MEC VALUES(302,'Tarak',100);
+INSERT INTO MEC VALUES(303,'RamCharan',85);
+INSERT INTO MEC VALUES(304,'HariKrishna',99);
+INSERT INTO MEC VALUES(305,'Anudeep',90);
+
+SELECT * FROM CSE;
+
+SELECT * FROM ECE;
+
+SELECT * FROM MEC;
+
+	
