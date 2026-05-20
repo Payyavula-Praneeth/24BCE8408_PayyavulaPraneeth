@@ -1,0 +1,74 @@
+USE VITCampuses;
+
+CREATE TABLE Persons(
+  ID INT NOT NULL,
+  FIRST_NAME VARCHAR(10) NOT NULL,
+  LAST_NAME VARCHAR(10) NOT NULL,
+  AGE INT
+);
+
+DESC Persons;
+
+INSERT INTO Persons VALUES(101,'Praneeth','P',19);
+
+--Adding a Constraint
+ALTER TABLE Persons
+ADD UNIQUE (AGE);
+INSERT INTO Persons VALUES(102,'Ram','V',20);
+SELECT * FROM Persons;
+
+--Dropping a Constraint
+ALTER TABLE Persons
+DROP CONSTRAINT Age;
+INSERT INTO Persons VALUES(103,'Raju','P',20);
+SELECT * FROM Persons;
+
+--Adding CHECK Constraint
+ALTER TABLE Persons
+ADD CHECK(AGE>=18);
+
+--Adding DEFAULT Constraint
+ALTER TABLE Persons ADD COLUMN CITY VARCHAR(10) DEFAULT 'Chennai';
+
+CREATE TABLE Products(
+  Product_ID INT PRIMARY KEY,
+  Product_Name VARCHAR(10) NOT NULL,
+  Ref_No INT NOT NULL UNIQUE
+);
+
+INSERT INTO Products VALUES(101,'Phone',229910);
+INSERT INTO Products VALUES(102,'Laptop',229911);
+SELECT * FROM Products;
+
+--Dropping a Primary key from table
+ALTER TABLE Products
+DROP PRIMARY KEY;
+
+--Adding a Primary key to column
+ALTER TABLE Products
+ADD PRIMARY KEY (Product_ID);
+
+DESC Products;
+
+DROP TABLE Products;
+
+--Foreign Key
+CREATE TABLE Category(
+  cID INT PRIMARY KEY,
+  cName VARCHAR(30) NOT NULL
+);
+INSERT INTO Category VALUES(101,'Electronics');
+INSERT INTO Category VALUES(102,'Home App');
+SELECT * FROM Category;
+
+CREATE TABLE Products(
+  pID INT PRIMARY KEY,
+  pName VARCHAR(30) NOT NULL,
+  cID INT,
+  FOREIGN KEY (cID) REFERENCES Category(cID)
+);
+
+INSERT INTO Products VALUES(201,'Laptop',101);
+INSERT INTO Products VALUES(202,'Wooden Door',102);
+INSERT INTO Products VALUES(203,'Phone',101);
+SELECT * FROM Products;
