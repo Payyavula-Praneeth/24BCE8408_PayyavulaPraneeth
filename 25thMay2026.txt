@@ -1,0 +1,81 @@
+show databases
+Output:
+admin  59B
+config  0B
+local   2.40B
+
+use vit
+Output:switched to db vit
+
+db
+Output:vit
+
+db.dropDatabase()
+Output:{ ok: 1, dropped: 'vit' }
+
+cls
+
+use vit
+Output:already on db vit
+
+db.createCollection("Student")
+Output:{ ok: 1 }
+
+db.createCollection("Employee")
+Output:{ ok: 1 }
+
+show collections
+Output:
+Employee
+Student
+
+db.Employee.drop()
+Output:true
+
+show collections
+Output:Student
+
+db.Student.insert({
+
+  name:"Praneeth",
+
+  roll:"8408",
+
+  age:"19"
+
+})
+
+Output:
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('6a14718251fef75db88ce5af') }
+}
+
+db.Student.insert({
+  python:"99",
+  java:"95",
+  maths:"98",
+  OS:"95"
+})
+Output:
+{
+  acknowledged: true,
+  insertedIds: { '0': ObjectId('6a14718251fef75db88ce5b0') }
+}
+db.Student.find()
+Output:
+[
+  {
+    _id: ObjectId('6a14718251fef75db88ce5af'),
+    name: 'Praneeth',
+    roll: '8408',
+    age: '19'
+  },
+  {
+    _id: ObjectId('6a14718251fef75db88ce5b0'),
+    python: '99',
+    java: '95',
+    maths: '98',
+    OS: '95'
+  }
+]
